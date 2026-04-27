@@ -2,12 +2,12 @@ import java.util.Random;
 public class Sorter {
     public void Bubble(int[] arr) {
         int n = arr.length;
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
-                if (arr[j] > arr[j + 1]) {
+        for (int i=0; i<n-1; i++) {
+            for (int j=0; j<n-i-1; j++) {
+                if (arr[j]>arr[j+1]) {
                     int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
                 }
             }
         }
@@ -19,7 +19,7 @@ public class Sorter {
         if (left < right) {
             int mid = left + (right - left) / 2;
             Sort_Process(arr, left, mid);
-            Sort_Process(arr, mid + 1, right);
+            Sort_Process(arr, mid+1, right);
             MergeSort_Steps(arr, left, mid, right);
         }
     }
@@ -49,7 +49,7 @@ public class Sorter {
     public int[] GenRandomArr(int size) {
         Random rd = new Random();
         int[] arr = new int[size];
-        for (int i = 0; i < size; i++) arr[i] = rd.nextInt(1000);
+        for (int i = 0; i < size; i++) arr[i] = rd.nextInt(100000);
         return arr;
     }
     public void printArray(int[] arr) {

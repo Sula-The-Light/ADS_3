@@ -5,10 +5,11 @@ public class Experiment {
     public long Sort_Time(int[] arr, String type) {
         int[] copy = Arrays.copyOf(arr, arr.length);
         long start = System.nanoTime();
-        if (type.equals("basa")) {
+        if (type.equals("baza")) {
             sorter.Bubble(copy);
+        } else {
+            sorter.Merge_Sort(copy);
         }
-        else sorter.Merge_Sort(copy);
         return System.nanoTime() - start;
     }
     public long Search_Time(int[] arr, int target) {
@@ -17,8 +18,8 @@ public class Experiment {
         return System.nanoTime() - start;
     }
     public void runAll() {
-        int[] sizes = {10, 100, 1000};
-        System.out.println("Size\tType\tBasic (ns)\tAdvanced (ns)");
+        int[] sizes = {9, 99, 999 , 9999 , 99999};
+        System.out.println("Size \t Type\t Basic (ns) \t Advanced (ns)");
         for (int size : sizes) {
             int[] randomArr = sorter.GenRandomArr(size);
             long t1 = Sort_Time(randomArr, "basic");
