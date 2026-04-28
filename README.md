@@ -6,11 +6,13 @@ Group : IT-2502
 
 --------------------------------------------------------------------------
 
+1. Experiment detailed explanation
+
 In Category A: Basic Sorting , i have picked "Bubble Sort" as an easy and fast sorting algorithm
 
 Time Complexity: $O(n^2)$
 
-The main thing I used in this and further tasks were arrays. For example , I used one in "Sorter" class. In "Sorter", in particular , "Bubble Sort" , "int[] arr" was used as the main container for my sortable numbers. Nested for loops are also used here. The outer loop is responsible for the number of passes through the array, and the inner loop is responsible for comparing neighboring elements. $if (arr[j] > arr[j+1])$ in bubble sort is the "heart" of the algorithm, determining the order of the elements.
+The main thing I used in this and further tasks were arrays. For example , I used one in "Sorter" class. In "Sorter", in particular , "Bubble Sort" , "int[] arr" was used as the main container for my sortable numbers. Nested for loops are also used here. The outer loop is responsible for the number of passes through the array, and the inner loop is responsible for comparing neighboring elements.  $if (arr[j] > arr[j+1])$  in bubble sort is the "heart" of the algorithm, determining the order of the elements.
 In other words , Bubble Sort is a simple comparison-based algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order
 
 --------------------------------------------------------------------------
@@ -33,7 +35,7 @@ $int L = 0, R = arr.length - 1;$
 
 The meaning is , they define a "search box" , at the very beginning, the window is the entire array.
 
-Logic: Binary search only works in a sorted array. If we are looking for a number, we don't need to look everywhere, we just need to narrow these "gates" (L and R) until the number we are looking for is in the center, or until the gate closes (there is no number).That is an efficient search algorithm that finds the position of a target value within a **sorted** array by repeatedly dividing the search interval in half
+The logic of binary search is that it only works in a sorted array. If we are looking for a number, we don't need to look everywhere, we just need to narrow these "gates" , $L$ and $R$ , until the number we are looking for is in the center, or until the gate closes.That is an efficient search algorithm that finds the position of a target value within a **sorted** array by repeatedly dividing the search interval in half
 
 --------------------------------------------------------------------------
 
@@ -55,17 +57,18 @@ Note: The times below are measured in nanoseconds (ns)
 4. Reflection and Analysis
 
 What I learned about algorithm efficiency:
+
 Through this project, I clearly observed how theoretical Big-O complexity translates into real-world execution time. While simple algorithms are easy to implement, their performance degrades rapidly as the dataset grows. Choosing the right algorithm is crucial for system scalability. I also learned why Binary Search is so powerful—it can find an element almost instantly, but it strictly requires the data to be pre-sorted.
 
 Differences between theoretical and practical performance:
-In theory, Merge Sort ($O(n \log n)$) is always better than Bubble Sort ($O(n^2)$). However, in my practical experiments, I noticed that for very small arrays (e.g., $N=10$), Bubble Sort sometimes outperformed Merge Sort. This is due to the practical overhead of Merge Sort, which requires additional memory allocation and recursive function calls. However, as the array size increased to 1000 elements, Merge Sort demonstrated its true efficiency, outperforming Bubble Sort by a massive margin.
+In theory, Merge Sort is always better than Bubble Sort. However, in my practical experiments, I noticed that for very small arrays , Bubble Sort sometimes outperformed Merge Sort. This is due to the practical overhead of Merge Sort, which requires additional memory allocation and recursive function calls. However, as the array size increased to 1000 elements, Merge Sort demonstrated its true efficiency, outperforming Bubble Sort by a massive margin.
 
 Challenges faced during implementation:
 One of the main challenges was ensuring a fair testing environment. Initially, running a sorting algorithm would modify the original array, which ruined the conditions for the second sorting algorithm. To solve this, I used `Arrays.copyOf()` to ensure each algorithm operated on a fresh, identical set of data. Additionally, I had to ensure the array was explicitly sorted before passing it to the Binary Search method to prevent inaccurate search results.
 
 ---
 
-5. Screenshots
+5. Screenshots:
 
 ![Image alt](https://github.com/Sula-The-Light/ADS_3/blob/main/Снимок%20экрана%202026-04-28%20105835.png)
 
