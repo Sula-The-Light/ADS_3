@@ -17,7 +17,7 @@ public class Sorter {
     }
     private void sortProcess(int[] arr, int L, int R) {
         if (L<R) {
-            int M = L+(R-L)/2;
+            int M=L+(R-L)/2;
             sortProcess(arr,L,M);
             sortProcess(arr, M+1, R);
             merge(arr,L,M,R);
@@ -48,13 +48,13 @@ public class Sorter {
     public int[] generateRandomArray(int size) {
         Random rd = new Random();
         int[] arr = new int[size];
-        for (int i = 0; i < size; i++)
+        for (int i=0; i<size; i++)
             arr[i] = rd.nextInt(10000);
         return arr;
     }
     public void printArr(int[] arr) {
         for (int i : arr) {
-            System.out.print(i + " ");
+            System.out.print(i+" ");
         }
         System.out.println();
     }

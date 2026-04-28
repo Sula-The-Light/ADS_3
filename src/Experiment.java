@@ -12,11 +12,11 @@ public class Experiment {
         }
         return System.nanoTime() - start;
     }
-    public long measureSearchTime(int[] arr, int target) {
+    public long measureSearchTime(int[] arr,int target) {
         int[] copy = Arrays.copyOf(arr, arr.length);
         long start = System.nanoTime();
-        searcher.search(copy, target);
-        return System.nanoTime() - start;
+        searcher.search(copy,target);
+        return System.nanoTime()-start;
     }
     public void runAllExperiments() {
         int[] sizes = {10, 100, 1000};
