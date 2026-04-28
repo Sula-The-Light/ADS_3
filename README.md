@@ -6,7 +6,7 @@ Group : IT-2502
 
 --------------------------------------------------------------------------
 
-1. Experiment detailed explanation
+1. Experiment on a Sample with detailed explanation
 
 In Category A: Basic Sorting , i have picked "Bubble Sort" as an easy and fast sorting algorithm
 
