@@ -28,36 +28,38 @@ Time Complexity: $O(\log n)$
 
 That is an efficient search algorithm that finds the position of a target value within a **sorted** array by repeatedly dividing the search interval in half.
 
-## 3. Experiment Results
+--------------------------------------------------------------------------
 
-*Note: The times below are measured in nanoseconds (ns).*
+3. Experiment Results
+
+Note: The times below are measured in nanoseconds (ns)
 
 | Size | Data Type | Basic Sort: Bubble (ns) | Advanced Sort: Merge (ns) | Search: Binary (ns) |
 | :--- | :--- | :--- | :--- | :--- |
-| 10 | Random | [ВСТАВЬ_СВОЕ_ЧИСЛО] | [ВСТАВЬ_СВОЕ_ЧИСЛО] | [ВСТАВЬ_СВОЕ_ЧИСЛО] |
-| 10 | Sorted | [ВСТАВЬ_СВОЕ_ЧИСЛО] | [ВСТАВЬ_СВОЕ_ЧИСЛО] | [ВСТАВЬ_СВОЕ_ЧИСЛО] |
-| 100 | Random | [ВСТАВЬ_СВОЕ_ЧИСЛО] | [ВСТАВЬ_СВОЕ_ЧИСЛО] | [ВСТАВЬ_СВОЕ_ЧИСЛО] |
-| 100 | Sorted | [ВСТАВЬ_СВОЕ_ЧИСЛО] | [ВСТАВЬ_СВОЕ_ЧИСЛО] | [ВСТАВЬ_СВОЕ_ЧИСЛО] |
-| 1000 | Random | [ВСТАВЬ_СВОЕ_ЧИСЛО] | [ВСТАВЬ_СВОЕ_ЧИСЛО] | [ВСТАВЬ_СВОЕ_ЧИСЛО] |
-| 1000 | Sorted | [ВСТАВЬ_СВОЕ_ЧИСЛО] | [ВСТАВЬ_СВОЕ_ЧИСЛО] | [ВСТАВЬ_СВОЕ_ЧИСЛО] |
+| 10 | Random | 10100 | 18000 | 4000 |
+| 10 | Sorted | 4600 | 11900 | 1800 |
+| 100 | Random | 331500 | 99100 | 2500 |
+| 100 | Sorted | 230800 | 101600 | 1600 |
+| 1000 | Random | 18261600 | 947400 | 2200 |
+| 1000 | Sorted | 2879600 | 206100 | 3500 |
 
 ---
 
-## 4. Reflection and Analysis
+4. Reflection and Analysis
 
-**What I learned about algorithm efficiency:**
+What I learned about algorithm efficiency:
 Through this project, I clearly observed how theoretical Big-O complexity translates into real-world execution time. While simple algorithms are easy to implement, their performance degrades rapidly as the dataset grows. Choosing the right algorithm is crucial for system scalability. I also learned why Binary Search is so powerful—it can find an element almost instantly, but it strictly requires the data to be pre-sorted.
 
-**Differences between theoretical and practical performance:**
+Differences between theoretical and practical performance:
 In theory, Merge Sort ($O(n \log n)$) is always better than Bubble Sort ($O(n^2)$). However, in my practical experiments, I noticed that for very small arrays (e.g., $N=10$), Bubble Sort sometimes outperformed Merge Sort. This is due to the practical overhead of Merge Sort, which requires additional memory allocation and recursive function calls. However, as the array size increased to 1000 elements, Merge Sort demonstrated its true efficiency, outperforming Bubble Sort by a massive margin.
 
-**Challenges faced during implementation:**
+Challenges faced during implementation:
 One of the main challenges was ensuring a fair testing environment. Initially, running a sorting algorithm would modify the original array, which ruined the conditions for the second sorting algorithm. To solve this, I used `Arrays.copyOf()` to ensure each algorithm operated on a fresh, identical set of data. Additionally, I had to ensure the array was explicitly sorted before passing it to the Binary Search method to prevent inaccurate search results.
 
 ---
 
-## 5. Screenshots
+5. Screenshots
 
-**Program Execution Output:**
-![Program Output](docs/screenshots/output.png) 
-*(Загрузи скриншот своей консоли в папку docs/screenshots в GitHub и убедись, что путь к картинке совпадает)*
+![Image alt](https://github.com/Sula-The-Light/ADS_3/blob/main/Снимок%20экрана%202026-04-28%20105835.png)
+
+
