@@ -1,19 +1,32 @@
 Assignment 3: Sorting and Searching Algorithm Analysis System
+
 Name : Sultan Yesmagzam
+
 Group : IT-2502
 
+--------------------------------------------------------------------------
+
 In Category A: Basic Sorting , i have picked "Bubble Sort" as an easy and fast sorting algorithm
+
 Time Complexity: $O(n^2)$
+
 In other words , it's a simple comparison-based algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. 
 
+--------------------------------------------------------------------------
+
 In Category B: Advanced Sorting , I found out that "Merge Sort" woukd be a nice way to sort my data
+
 Time Complexity: $O(n \log n)$
+
 To say simply , this is a highly efficient, stable, divide-and-conquer algorithm. It divides the input array into two halves, recursively sorts them, and then merges the sorted halves.
 
-### Category C: Searching
-* **Algorithm:** Binary Search
-* **Time Complexity:** $O(\log n)$
-* **Description:** An efficient search algorithm that finds the position of a target value within a **sorted** array by repeatedly dividing the search interval in half.
+--------------------------------------------------------------------------
+
+In Category C: Searching , I had to choose "Binary Search" if i wanted to sort quieries faster
+
+Time Complexity: $O(\log n)$
+
+That is an efficient search algorithm that finds the position of a target value within a **sorted** array by repeatedly dividing the search interval in half.
 
 ## 3. Experiment Results
 
