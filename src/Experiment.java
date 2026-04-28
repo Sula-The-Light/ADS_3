@@ -2,29 +2,39 @@ import java.util.Arrays;
 public class Experiment {
     private Sorter sorter = new Sorter();
     private Searcher searcher = new Searcher();
-    public long Sort_Time(int[] arr, String type) {
+    public long measureSortTime(int[] arr, String type) {
         int[] copy = Arrays.copyOf(arr, arr.length);
         long start = System.nanoTime();
-        if (type.equals("baza")) {
-            sorter.Bubble(copy);
-        } else {
-            sorter.Merge_Sort(copy);
+        if (type.equals("basic")){
+            sorter.basicSort(copy);
+        }else{
+            sorter.advancedSort(copy);
         }
         return System.nanoTime() - start;
     }
-    public long Search_Time(int[] arr, int target) {
+    public long measureSearchTime(int[] arr, int target) {
+        int[] copy = Arrays.copyOf(arr, arr.length);
         long start = System.nanoTime();
-        searcher.SEARCH(arr, target);
+        searcher.search(copy, target);
         return System.nanoTime() - start;
     }
-    public void runAll() {
-        int[] sizes = {9, 99, 999 , 9999 , 99999};
-        System.out.println("Size \t Type\t Basic (ns) \t Advanced (ns)");
+    public void runAllExperiments() {
+        int[] sizes = {10, 100, 1000};
+        System.out.println("Size\tData type\tBasic(ns)\tAdvanced(ns) \tSearch(ns)");
         for (int size : sizes) {
-            int[] randomArr = sorter.GenRandomArr(size);
-            long t1 = Sort_Time(randomArr, "basic");
-            long t2 = Sort_Time(randomArr, "advanced");
-            System.out.println(size + "\tRandom\t" + t1 + "\t\t" + t2);
+            int[] randomArr = sorter.generateRandomArray(size);
+            long tBasicRandom = measureSortTime(randomArr, "basic");
+            long tAdvancedRandom = measureSortTime(randomArr, "advanced");
+            int[] sortedForSearchRandom = Arrays.copyOf(randomArr, randomArr.length);
+            Arrays.sort(sortedForSearchRandom);
+            long tSearchRandom = measureSearchTime(sortedForSearchRandom, 100);
+            System.out.println(size + "\t\tRandom\t\t" + tBasicRandom + "\t\t" + tAdvancedRandom + "\t\t\t" + tSearchRandom);
+            int[] sortedArr = Arrays.copyOf(randomArr, randomArr.length);
+            Arrays.sort(sortedArr);
+            long tBasicSorted = measureSortTime(sortedArr,"basic");
+            long tAdvancedSorted = measureSortTime(sortedArr,"advanced");
+            long tSearchSorted = measureSearchTime(sortedArr,100);
+            System.out.println(size + "\t\tSorted\t\t" + tBasicSorted + "\t\t" + tAdvancedSorted + "\t\t\t" + tSearchSorted);
         }
     }
 }
